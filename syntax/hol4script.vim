@@ -144,7 +144,7 @@ syn region  HOLBinder
 syn match   HOLVars /\(\w\|\s\|'\)\+/ contained
 
 " Various symbols and keywords
-" TODO These conceal things are just annoying.
+syn match   HOLSymbol "\\\\" contained " This is fdomsub
 syn match   HOLSymbol "/\\" contained
 syn match   HOLSymbol "∧" contained
 syn match   HOLSymbol "\\/" contained
@@ -172,6 +172,7 @@ syn match   HOLSymbol "\<INTER\>" contained
 syn match   HOLSymbol "∩" contained
 syn match   HOLSymbol "\<UNION\>" contained
 syn match   HOLSymbol "∪" contained
+syn match   HOLSymbol "\<DIFF\>" contained
 syn match   HOLSymbol "\<SUBSET\>" contained
 syn match   HOLSymbol "⊆" contained
 syn match   HOLSymbol "\<PSUBSET\>" contained
@@ -183,10 +184,13 @@ syn match   HOLSymbol "\(;\|,\|<|\||>\|::\)" contained
 syn match   HOLSymbol "\<\(T\|F\)\>" contained
 syn match   HOLSymbol "\<o\>" contained
 
-syn keyword HOLSymbol EVERY MAP FILTER MEM REVERSE LENGTH REPLICATE contained
+syn keyword HOLSymbol FLAT LIST_REL EVERY MAP FILTER MEM REVERSE LENGTH REPLICATE contained
+syn keyword HOLSymbol FLOOKUP FDIFF fdomsub FEMPTY contained
+syn keyword HOLSymbol OPTION_MAP contained
+syn keyword HOLSymbol ALOOKUP contained
 syn keyword HOLSymbol TAKE DROP contained
-syn keyword HOLSymbol SOME NONE INL INR OUTL OUTR contained
-syn keyword HOLSymbol INSERT BIGUNION contained
+syn keyword HOLSymbol IS_SOME IS_NONE SOME NONE ISL ISR INL INR OUTL OUTR contained
+syn keyword HOLSymbol INSERT BIGUNION set LIST_TO_SET contained
 syn keyword HOLSymbol DIV MOD contained
 syn keyword HOLSymbol EL HD TL LUPDATE contained
 syn keyword HOLSymbol FST SND contained
@@ -195,9 +199,10 @@ syn keyword HOLSymbol with updated_by contained
 syn keyword HOLSymbol RTC contained
 syn keyword HOLSymbol IS_PREFIX contained
 syn keyword HOLSymbol otherwise contained
+syn keyword HOLSymbol ARB contained
 
 " Keywords
-syn keyword HOLKeywords case of let in if then else
+syn keyword HOLKeywords case of let in if then else do od
 
 " Comments
 syn region  HOLComment start=/(\*/ end=/\*)/ contains=HOLComment,MLTodo contained
