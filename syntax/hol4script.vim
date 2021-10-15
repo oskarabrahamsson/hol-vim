@@ -114,6 +114,7 @@ syn region HOLCoInductive
 syn match   MLTactical "\\\\"
 syn match   MLTactical ">>"
 syn match   MLTactical ">-"
+syn match   MLTactical ">\~"
 syn match   MLTactical "\<THEN[1L]\?\>"
 syn match   MLTactical "\<ORELSE\>"
 syn match   MLCheat    "\<cheat\>"
@@ -179,6 +180,7 @@ syn match   HOLSymbol "\<PSUBSET\>" contained
 syn match   HOLSymbol "⊂" contained
 syn match   HOLSymbol "\<EMPTY\>" contained
 syn match   HOLSymbol "++" contained
+syn match   HOLSymbol "+++" contained
 syn match   HOLSymbol "\(=>\||\|:=\|<_\>\)" contained
 syn match   HOLSymbol "\(;\|,\|<|\||>\|::\)" contained
 syn match   HOLSymbol "\<\(T\|F\)\>" contained
@@ -201,8 +203,11 @@ syn keyword HOLSymbol IS_PREFIX contained
 syn keyword HOLSymbol otherwise contained
 syn keyword HOLSymbol ARB contained
 
+" Some monad syntax keywords
+syn keyword HOLSymbol fail return letm lift
+
 " Keywords
-syn keyword HOLKeywords case of let in if then else do od
+syn keyword HOLKeywords case of let let in if then else do od
 
 " Comments
 syn region  HOLComment start=/(\*/ end=/\*)/ contains=HOLComment,MLTodo contained
